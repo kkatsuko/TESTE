@@ -276,11 +276,6 @@ RESPONSIVO
 
 @media (max-width: 900px) {
 
-  body.scrolled .hero {
-    position: relative;
-    top: 0;
-  }
-
   body.scrolled .hero-content {
     display: block;
     text-align: center;
@@ -315,14 +310,19 @@ RESPONSIVO
     margin: 3px 0;
   }
 
-  .hero .foto {
-    display: none;
-  }
+  body.scrolled .hero .foto{
+   display:none;
+ }
 
-  .hero .infos {
-    display: none;
-  }
+  body.scrolled .hero .infos{
+   display:none;
+ }
 
+  body.scrolled .hero-content{
+   flex-direction:row;
+   gap:10px;
+   justify-content:space-between;
+ }
   .hero-content {
     display: flex;
     flex-direction: column;
