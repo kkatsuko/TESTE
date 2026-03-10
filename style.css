@@ -1,0 +1,322 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F2E6D8;
+  color: #5A2E2E;
+  text-align: center;
+  line-height: 1.6;
+  padding-top: 10px;
+}
+
+main{
+margin-top:40px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.hero {
+  background-color: #E6D2B5;
+  padding: 40px 0;
+}
+
+.foto {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid #5A2E2E;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  margin: 20px 0 10px;
+}
+
+.subtitulo {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.infos p {
+  margin: 5px 0;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+  background-color: #5A2E2E;
+  color: #F2E6D8;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.botao:hover {
+  background-color: #3E1F1F;
+}
+
+section {
+  padding: 10px 0;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #5A2E2E;
+  margin: 8px auto 0;
+  opacity: 0.3;
+}
+
+footer {
+  background-color: #E6D2B5;
+  padding: 20px;
+  font-size: 14px;
+
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 400px;
+  height: 400px;
+  background-image: url("cantoneira.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.citacao {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  margin: 30px auto 0;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #5A2E2E;
+  opacity: 0.85;
+  position: relative;
+}
+
+.citacao::before {
+  content: "“";
+  font-size: 40px;
+  position: absolute;
+  left: -15px;
+  top: -10px;
+  opacity: 0.2;
+}
+
+.citacao::after {
+  content: "”";
+  font-size: 40px;
+  position: absolute;
+  right: -15px;
+  bottom: -20px;
+  opacity: 0.2;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #F2E6D8;
+  border-bottom: 1px solid rgba(90, 46, 46, 0.15);
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #5A2E2E;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.menu a:hover {
+  opacity: 0.7;
+}
+
+.hero-content {
+  transition: all 0.4s ease;
+}
+
+body.scrolled .hero {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+body.scrolled .hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+}
+
+body.scrolled .foto {
+  width: 50px;
+  height: 50px;
+  border-width: 3px;
+}
+
+body.scrolled h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+body.scrolled .subtitulo {
+  font-size: 12px;
+  margin: 0;
+}
+
+body.scrolled .infos {
+  display: none;
+}
+
+body.scrolled .hero-botao {
+  margin-top: 0;
+  padding: 8px 18px;
+  font-size: 14px;
+}
+
+@media (max-width: 900px){
+
+body.scrolled .hero{
+position:relative;
+top:0;
+}
+
+body.scrolled .hero-content{
+display:block;
+text-align:center;
+}
+
+body.scrolled .foto{
+width:220px;
+height:220px;
+border-width:8px;
+}
+
+body.scrolled h1{
+font-size:48px;
+margin:20px 0 10px;
+}
+
+body.scrolled .subtitulo{
+font-size:18px;
+margin-bottom:20px;
+}
+
+body.scrolled .botao{
+margin-top:25px;
+}
+
+}
+
+.infos span{
+white-space:nowrap;
+}
+
+.infos span:not(:last-child)::after{
+content:" • ";
+}
+
+@media (max-width:600px){
+
+.infos span{
+display:block;
+margin:3px 0;
+}
+
+}
+
+@media (max-width:600px){
+
+/* esconde a foto */
+.hero .foto{
+display:none;
+}
+
+/* esconde infos */
+.hero .infos{
+display:none;
+}
+
+/* organiza o conteúdo */
+.hero-content{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+padding:10px 0;
+}
+
+/* nome menor */
+.hero h1{
+font-size:32px;
+margin:5px 0;
+}
+
+/* subtitulo menor */
+.subtitulo{
+font-size:14px;
+margin-bottom:5px;
+}
+
+/* botão um pouco maior para toque */
+.hero-botao{
+width:80%;
+text-align:center;
+}
+
+}
+
+
+
+
