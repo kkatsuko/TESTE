@@ -236,6 +236,10 @@ body.scrolled .hero {
   z-index: 999;
 }
 
+body.scrolled main {
+  margin-top: 100px;
+}
+
 body.scrolled .hero-content {
   display: flex;
   align-items: center;
