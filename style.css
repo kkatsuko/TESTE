@@ -1,6 +1,6 @@
 /* =================================
-BASE
-================================= */
+   BASE & CORES (Paleta Neutra)
+   ================================= */
 
 html {
   scroll-behavior: smooth;
@@ -9,46 +9,48 @@ html {
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: #F2E6D8;
-  color: #5A2E2E;
+  background-color: #EAE3DB; /* Fundo Neutro (Greige) */
+  color: #4A2828; /* Marrom suave */
   text-align: center;
   line-height: 1.6;
   padding-top: 10px;
 }
 
 /* =================================
-LAYOUT
-================================= */
+   LAYOUT
+   ================================= */
 
 main {
   margin-top: 40px;
+  transition: opacity 0.5s ease;
 }
 
 .container {
   width: 90%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
-  padding: 10px 0;
+  padding: 1px 0;
 }
 
 section {
-  padding: 10px 0;
+  padding: 1px 0;
 }
 
 /* =================================
-TIPOGRAFIA
-================================= */
+   TIPOGRAFIA
+   ================================= */
 
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 48px;
-  margin: 20px 0 10px;
+  margin: 0 0 4px;
+  line-height: 1.15;
 }
 
 h2 {
   font-family: 'Playfair Display', serif;
   font-size: 32px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   position: relative;
   display: inline-block;
 }
@@ -58,26 +60,26 @@ h2::after {
   display: block;
   width: 40px;
   height: 2px;
-  background-color: #5A2E2E;
+  background-color: #4A2828;
   margin: 8px auto 0;
-  opacity: 0.3;
+  opacity: .3;
 }
 
 .subtitulo {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 6px;
 }
 
 /* =================================
-MENU
-================================= */
+   MENU (Estático)
+   ================================= */
 
 .menu {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #F2E6D8;
-  border-bottom: 1px solid rgba(90, 46, 46, 0.15);
+  background: #EAE3DB; /* Combinando com o fundo */
+  border-bottom: 1px solid rgba(74, 40, 40, .1);
   padding: 15px 0;
   z-index: 1000;
 }
@@ -90,33 +92,38 @@ MENU
 
 .menu a {
   text-decoration: none;
-  color: #5A2E2E;
+  color: #4A2828;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1px;
 }
 
 .menu a:hover {
-  opacity: 0.7;
+  opacity: .7;
 }
 
 /* =================================
-HERO
-================================= */
+   HERO (ESTADO NORMAL)
+   ================================= */
 
 .hero {
-  background-color: #E6D2B5;
+  background: #DBCFBF; /* Tom levemente mais escuro que o fundo */
   padding: 40px 0;
   position: relative;
   overflow: hidden;
 }
 
 .hero-content {
-  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .hero-texto {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .foto {
@@ -124,11 +131,10 @@ HERO
   height: 220px;
   object-fit: cover;
   border-radius: 50%;
-  border: 8px solid #5A2E2E;
+  border: 8px solid #4A2828;
 }
 
-/* cantoneira floral */
-
+/* Cantoneira Decorativa */
 .hero::after {
   content: "";
   position: absolute;
@@ -139,7 +145,7 @@ HERO
   background-image: url("cantoneira.png");
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.10;
+  opacity: .10;
   pointer-events: none;
   z-index: 0;
 }
@@ -150,8 +156,8 @@ HERO
 }
 
 /* =================================
-INFOS
-================================= */
+   BOTÃO & INFOS
+   ================================= */
 
 .infos span {
   white-space: nowrap;
@@ -161,106 +167,84 @@ INFOS
   content: " • ";
 }
 
-/* =================================
-BOTÕES
-================================= */
-
 .botao {
   display: inline-block;
-  margin-top: 25px;
-  padding: 12px 30px;
-  background-color: #5A2E2E;
-  color: #F2E6D8;
+  padding: 16px 26px;
+  background: #4A2828;
+  color: #EAE3DB;
   text-decoration: none;
   border-radius: 30px;
   font-weight: 500;
-  transition: 0.3s;
 }
 
 .botao:hover {
-  background-color: #3E1F1F;
+  background: #3E1F1F;
 }
 
 /* =================================
-CITAÇÃO
-================================= */
+   CITAÇÃO & FOOTER
+   ================================= */
 
 .citacao {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 18px;
-  margin: 30px auto 0;
+  margin: 40px auto;
   max-width: 600px;
-  color: #5A2E2E;
-  opacity: 0.85;
+  opacity: .85;
   position: relative;
 }
 
-.citacao::before {
-  content: "“";
-  font-size: 40px;
-  position: absolute;
-  left: -15px;
-  top: -10px;
-  opacity: 0.2;
-}
-
-.citacao::after {
-  content: "”";
-  font-size: 40px;
-  position: absolute;
-  right: -15px;
-  bottom: -20px;
-  opacity: 0.2;
-}
-
-/* =================================
-FOOTER
-================================= */
-
 footer {
-  background-color: #E6D2B5;
+  background: #DBCFBF;
   padding: 20px;
   font-size: 14px;
 }
 
 /* =================================
-SCROLL HEADER COMPACTO
-================================= */
+   HEADER COMPACTO (SCROLL ATIVO)
+   ================================= */
 
 body.scrolled .hero {
   position: fixed;
-  top: 50px;
+  top: 48px; /* Ajustado para ficar logo abaixo do menu */
   width: 100%;
   padding: 10px 0;
   z-index: 999;
+  background: rgba(219, 207, 191, 0.95) !important; /* Cor Greige mais opaca */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 body.scrolled main {
-  margin-top: 100px;
+  margin-top: 320px; /* Espaço para o hero não cobrir o conteúdo */
 }
 
 body.scrolled .hero-content {
-  display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
-  max-width: 1100px;
-  margin: auto;
+  align-items: center; /* CENTRALIZAÇÃO VERTICAL TOTAL */
+}
+
+body.scrolled .hero-texto {
+  margin-bottom: 0;
+  text-align: left;
 }
 
 body.scrolled .foto {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-width: 3px;
 }
 
 body.scrolled h1 {
-  font-size: 20px;
+  font-size: 24px;
   margin: 0;
 }
 
 body.scrolled .subtitulo {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0;
 }
 
@@ -269,85 +253,61 @@ body.scrolled .infos {
 }
 
 body.scrolled .hero-botao {
-  margin-top: 0;
-  padding: 8px 18px;
+  padding: 10px 20px;
   font-size: 14px;
 }
 
+body.scrolled .hero::after {
+  display: block;    /* Garante que ela apareça */
+  width: 180px;      /* Reduzi o tamanho (era 400px) para caber na faixa fininha */
+  height: 180px;
+  top: -15px;        /* Ajuste fino da posição */
+  right: -15px;
+  opacity: 0.07;     /* Deixei um tiquinho mais transparente para ficar elegante */
+  transform: scale(1);
+  transition: all 0.6s ease;}
+
 /* =================================
-RESPONSIVO
-================================= */
+   DESKTOP HERO (ESTADO INICIAL)
+   ================================= */
+
+@media (min-width: 901px) {
+  body:not(.scrolled) .hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    gap: 40px;
+  }
+
+  body:not(.scrolled) .hero-texto {
+    flex: 1;
+    align-items: flex-start;
+  }
+}
+
+/* =================================
+   RESPONSIVO (MOBILE)
+   ================================= */
 
 @media (max-width: 900px) {
-
   body.scrolled .hero-content {
-    display: block;
-    text-align: center;
+    flex-direction: column; /* No mobile ele volta a ser empilhado se preferir */
+    gap: 10px;
   }
 
   body.scrolled .foto {
-    width: 220px;
-    height: 220px;
-    border-width: 8px;
+    display: none; /* Esconde a foto no mobile scrollado para ganhar espaço */
   }
-
-  body.scrolled h1 {
-    font-size: 48px;
-    margin: 20px 0 10px;
+  
+  body.scrolled main {
+    margin-top: 250px;
   }
-
-  body.scrolled .subtitulo {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-
-  body.scrolled .botao {
-    margin-top: 25px;
-  }
-
 }
 
-@media (max-width: 600px) {
+/* =================================
+   ANIMAÇÕES (TRANSITIONS)
+   ================================= */
 
-  .infos span {
-    display: block;
-    margin: 3px 0;
-  }
-
-  body.scrolled .hero .foto{
-   display:none;
- }
-
-  body.scrolled .hero .infos{
-   display:none;
- }
-
-  body.scrolled .hero-content{
-   flex-direction:row;
-   gap:10px;
-   justify-content:space-between;
- }
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 0;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-    margin: 5px 0;
-  }
-
-  .subtitulo {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-
-  .hero-botao {
-    width: 80%;
-    text-align: center;
-  }
-
+.hero, .foto, h1, .subtitulo, .hero-botao, .botao, .hero-content {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
