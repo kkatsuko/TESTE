@@ -96,15 +96,21 @@
     <p>© 2026 Nicole Pouço · CRP 06/161340</p>
   </footer>
 <script>
-window.addEventListener("scroll", function() {
-  if (window.scrollY > 100) {
-    document.body.classList.add("scrolled");
-  } else {
-    document.body.classList.remove("scrolled");
-  }
-});
+  let isScrolled = false;
+
+  window.addEventListener("scroll", function() {
+    // Só encolhe quando o usuário já desceu bem a tela (80px)
+    if (window.scrollY > 80 && !isScrolled) {
+      document.body.classList.add("scrolled");
+      isScrolled = true;
+    } 
+    // Só volta a crescer quando o usuário colar lá no topo (menos de 10px)
+    else if (window.scrollY <= 10 && isScrolled) {
+      document.body.classList.remove("scrolled");
+      isScrolled = false;
+    }
+  });
 </script>
-  
 </body>
 
 </html>
