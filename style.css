@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 180px
 }
 
 body {
@@ -102,15 +103,17 @@ h2::after {
   opacity: .7;
 }
 
+
 /* =================================
    HERO (ESTADO NORMAL)
    ================================= */
 
 .hero {
-  background: #DBCFBF; /* Tom levemente mais escuro que o fundo */
+  background: #DBCFBF;
   padding: 40px 0;
-  position: relative;
-  overflow: hidden;
+  position: sticky; /* A MÁGICA COMEÇA AQUI */
+  top: 50px; /* Ele vai grudar logo abaixo do menu */
+  z-index: 999;
 }
 
 .hero-content {
@@ -206,20 +209,14 @@ footer {
    ================================= */
 
 body.scrolled .hero {
-  position: fixed;
-  top: 48px; /* Ajustado para ficar logo abaixo do menu */
-  width: 100%;
+width: 100%;
   padding: 10px 0;
-  z-index: 999;
-  background: rgba(219, 207, 191, 0.95) !important; /* Cor Greige mais opaca */
+  background: rgba(219, 207, 191, 0.95) !important; 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-body.scrolled main {
-  margin-top: 320px; /* Espaço para o hero não cobrir o conteúdo */
-}
 
 body.scrolled .hero-content {
   flex-direction: row;
@@ -296,12 +293,13 @@ body.scrolled .hero::after {
   }
 
   body.scrolled .foto {
-    display: none; /* Esconde a foto no mobile scrollado para ganhar espaço */
+    width: 0;
+    height: 0;
+    border-width: 0;
+    margin: 0;
+    opacity: 0; 
   }
-  
-  body.scrolled main {
-    margin-top: 250px;
-  }
+
 }
 
 /* =================================
