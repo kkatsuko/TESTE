@@ -95,8 +95,9 @@ h2::after {
    MENU SUPERIOR (SEMPRE FIXO)
    ================================= */
 .menu {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 60px;
   background: #EAE3DB;
@@ -129,8 +130,10 @@ h2::after {
    HERO (MAGIA DO STICKY)
    ================================= */
 .hero {
-  position: sticky;
-  top: 60px; /* Cola exatamente embaixo do menu */
+  position: fixed;
+  top: 60px; 
+  left: 0;
+  width: 100%;
   background: #DBCFBF;
   padding: 40px 0;
   z-index: 999;
@@ -235,8 +238,12 @@ body.scrolled .cantoneira { transform: scale(0.5) translate(40%, -40%); opacity:
     gap: 10px;
   }
   body.scrolled .foto {
-    display: none; /* Some com a foto no mobile conforme pedido */
+    width: 0; 
+    height: 0;
+    border-width: 0;
+   margin: 0; opacity: 0;
   }
+   
   body.scrolled .hero-texto {
     gap: 0;
   }
