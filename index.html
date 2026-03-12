@@ -87,14 +87,31 @@
     <p>© 2026 Nicole Pozo · CRP 06/161340</p>
   </footer>
 
-  <script>
-    window.addEventListener("scroll", function() {
-      if (window.scrollY > 20) {
-        document.body.classList.add("scrolled");
-      } else {
-        document.body.classList.remove("scrolled");
-      }
-    });
-  </script>
+<script>
+  const menu = document.querySelector('.menu');
+  const hero = document.getElementById('hero');
+  const main = document.querySelector('main');
+
+  // 1. Cria a margem perfeita apenas no load inicial
+  function ajustarMolde() {
+    if (!document.body.classList.contains('scrolled')) {
+      main.style.marginTop = (menu.offsetHeight + hero.offsetHeight) + 'px';
+    }
+  }
+
+  window.addEventListener('load', ajustarMolde);
+  window.addEventListener('resize', ajustarMolde);
+
+  // 2. Controla o modo compacto
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 20) {
+      document.body.classList.add("scrolled");
+    } else {
+      document.body.classList.remove("scrolled");
+      ajustarMolde(); // Garante o alinhamento caso volte pro topo
+    }
+  });
+</script>
+  
 </body>
 </html>
