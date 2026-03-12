@@ -1,57 +1,45 @@
 /* =================================
-   BASE & CORES (Paleta Neutra)
+   BASE & NAVEGAÇÃO
    ================================= */
-
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 180px
+  /* Isso garante que ao clicar no menu, o site pare 150px ANTES do título, 
+     evitando que o hero cubra o texto. */
+  scroll-padding-top: 150px; 
 }
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: #EAE3DB; /* Fundo Neutro (Greige) */
-  color: #4A2828; /* Marrom suave */
+  background-color: #EAE3DB;
+  color: #4A2828;
   text-align: center;
   line-height: 1.6;
-  padding-top: 10px;
-}
-
-/* =================================
-   LAYOUT
-   ================================= */
-
-main {
-  margin-top: 0px;
-  transition: opacity 0.5s ease;
 }
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
-  padding: 1px 0;
-}
-
-section {
-  padding: 1px 0;
+  padding: 20px 0;
 }
 
 /* =================================
    TIPOGRAFIA
    ================================= */
+h1, h2, .citacao {
+  font-family: 'Playfair Display', serif;
+}
 
 h1 {
-  font-family: 'Playfair Display', serif;
   font-size: 48px;
-  margin: 0 0 4px;
+  margin: 0 0 5px;
   line-height: 1.15;
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
   font-size: 32px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   position: relative;
   display: inline-block;
 }
@@ -68,20 +56,53 @@ h2::after {
 
 .subtitulo {
   font-size: 18px;
-  margin-bottom: 6px;
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+
+.infos {
+  margin: 0;
+}
+
+.infos span {
+  white-space: nowrap;
+}
+
+.infos span:not(:last-child)::after {
+  content: " • ";
 }
 
 /* =================================
-   MENU (Estático)
+   BOTÃO
    ================================= */
+.botao {
+  display: inline-block;
+  padding: 16px 28px;
+  background: #4A2828;
+  color: #EAE3DB;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
 
+.botao:hover {
+  background: #3E1F1F;
+}
+
+/* =================================
+   MENU SUPERIOR (SEMPRE FIXO)
+   ================================= */
 .menu {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
-  background: #EAE3DB; /* Combinando com o fundo */
+  height: 60px;
+  background: #EAE3DB;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid rgba(74, 40, 40, .1);
-  padding: 15px 0;
   z-index: 1000;
 }
 
@@ -89,6 +110,7 @@ h2::after {
   display: flex;
   justify-content: center;
   gap: 60px;
+  width: 100%;
 }
 
 .menu a {
@@ -103,216 +125,143 @@ h2::after {
   opacity: .7;
 }
 
-
 /* =================================
-   HERO (ESTADO NORMAL)
+   HERO (MAGIA DO STICKY)
    ================================= */
-
 .hero {
+  position: sticky;
+  top: 60px; /* Cola exatamente embaixo do menu */
   background: #DBCFBF;
   padding: 40px 0;
-  position: fixed; /* A MÁGICA COMEÇA AQUI */
-  top: 49px;
-  width: 100%;
   z-index: 999;
   overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0);
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.hero-texto {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.foto {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 8px solid #4A2828;
-}
-
-/* Cantoneira Decorativa */
-.hero::after {
-  content: "";
+.cantoneira {
   position: absolute;
   top: -20px;
   right: -20px;
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   background-image: url("cantoneira.png");
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: .10;
+  opacity: 0.1;
   pointer-events: none;
   z-index: 0;
 }
 
-.hero .container {
+.hero-content {
   position: relative;
   z-index: 1;
 }
 
-/* =================================
-   BOTÃO & INFOS
-   ================================= */
-
-.infos span {
-  white-space: nowrap;
-}
-
-.infos span:not(:last-child)::after {
-  content: " • ";
-}
-
-.botao {
-  display: inline-block;
-  padding: 16px 26px;
-  background: #4A2828;
-  color: #EAE3DB;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 500;
-}
-
-.botao:hover {
-  background: #3E1F1F;
+.foto {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #4A2828;
 }
 
 /* =================================
-   CITAÇÃO & FOOTER
+   LAYOUT DESKTOP (A PARTIR DE 901PX)
+   ================================= */
+@media (min-width: 901px) {
+  .hero-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .hero-texto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .foto, .hero-botao {
+    flex-shrink: 0;
+  }
+}
+
+/* =================================
+   LAYOUT MOBILE (ATÉ 900PX)
+   ================================= */
+@media (max-width: 900px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .hero-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* =================================
+   ESTADO SCROLLED (COMPACTO)
    ================================= */
 
+/* Desktop & Mobile Geral */
+body.scrolled .hero {
+  padding: 10px 0;
+  background: rgba(219, 207, 191, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.scrolled h1 { font-size: 24px; margin-bottom: 2px; }
+body.scrolled .subtitulo { font-size: 14px; margin-bottom: 0; }
+body.scrolled .infos { font-size: 12px; }
+body.scrolled .foto { width: 60px; height: 60px; border-width: 2px; }
+body.scrolled .hero-botao { padding: 10px 20px; font-size: 14px; }
+body.scrolled .cantoneira { transform: scale(0.5) translate(40%, -40%); opacity: 0.05; }
+
+/* Comportamento Específico Mobile Scrolled */
+@media (max-width: 900px) {
+  body.scrolled .hero-content {
+    gap: 10px;
+  }
+  body.scrolled .foto {
+    display: none; /* Some com a foto no mobile conforme pedido */
+  }
+  body.scrolled .hero-texto {
+    gap: 0;
+  }
+}
+
+/* =================================
+   ANIMAÇÕES (SUAVIDADE GERAL)
+   ================================= */
+.hero, .hero-content, .foto, .hero-texto, h1, .subtitulo, .infos, .botao, .cantoneira {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =================================
+   RODAPÉ E CITAÇÃO
+   ================================= */
 .citacao {
-  font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 18px;
-  margin: 40px auto;
+  margin: 40px auto 10px;
   max-width: 600px;
   opacity: .85;
-  position: relative;
 }
 
 footer {
   background: #DBCFBF;
   padding: 20px;
   font-size: 14px;
-}
-
-/* =================================
-   HEADER COMPACTO (SCROLL ATIVO)
-   ================================= */
-
-body.scrolled .hero {
-width: 100%;
-  padding: 10px 0;
-  background: rgba(219, 207, 191, 0.95) !important; 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-
-
-body.scrolled .hero-content {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center; /* CENTRALIZAÇÃO VERTICAL TOTAL */
-}
-
-body.scrolled .hero-texto {
-  margin-bottom: 0;
-  text-align: left;
-}
-
-body.scrolled .foto {
-  width: 70px;
-  height: 70px;
-  border-width: 3px;
-}
-
-body.scrolled h1 {
-  font-size: 24px;
-  margin: 0;
-}
-
-body.scrolled .subtitulo {
-  font-size: 14px;
-  margin: 0;
-}
-
-body.scrolled .infos {
-  display: none;
-}
-
-body.scrolled .hero-botao {
-  padding: 10px 20px;
-  font-size: 14px;
-}
-
-body.scrolled .hero::after {
-  display: block;    /* Garante que ela apareça */
-  width: 180px;      /* Reduzi o tamanho (era 400px) para caber na faixa fininha */
-  height: 180px;
-  top: -15px;        /* Ajuste fino da posição */
-  right: -15px;
-  opacity: 0.07;     /* Deixei um tiquinho mais transparente para ficar elegante */
-  transform: scale(1);
-  transition: all 0.6s ease;}
-
-/* =================================
-   DESKTOP HERO (ESTADO INICIAL)
-   ================================= */
-
-@media (min-width: 901px) {
-  body:not(.scrolled) .hero-content {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-    gap: 40px;
-  }
-
-  body:not(.scrolled) .hero-texto {
-    flex: 1;
-    align-items: flex-start;
-  }
-}
-
-/* =================================
-   RESPONSIVO (MOBILE)
-   ================================= */
-
-/* =================================
-   RESPONSIVO (MOBILE)
-   ================================= */
-@media (max-width: 900px) {
-  body.scrolled .hero-content {
-    flex-direction: column; 
-    gap: 0; /* Tiramos o espaço extra para a transição ficar coladinha */
-  }
-
-  body.scrolled .foto {
-    /* O segredo para a foto sumir suavemente sem tremer o layout: */
-    max-width: 0;
-    max-height: 0;
-    margin: 0;
-    border-width: 0;
-    opacity: 0;
-    transform: scale(0);
-    overflow: hidden;
-  }
-}
-/* =================================
-   ANIMAÇÕES (TRANSITIONS)
-   ================================= */
-
-.hero, .foto, h1, .subtitulo, .hero-botao, .botao, .hero-content {
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
