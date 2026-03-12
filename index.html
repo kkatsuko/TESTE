@@ -96,19 +96,52 @@
     <p>© 2026 Nicole Pouço · CRP 06/161340</p>
   </footer>
 <script>
+  const hero = document.getElementById("hero");
+  const main = document.querySelector("main");
   let isScrolled = false;
 
+  // 1. O MOLDE INVISÍVEL (Mata o espaço fantasma do desktop)
+  function ajustarEspaco() {
+    // Só calcula o espaço se o hero estiver no tamanho original
+    if (!document.body.classList.contains("scrolled")) {
+      main.style.paddingTop = hero.offsetHeight + "px";
+    }
+  }
+  
+  // Roda o cálculo assim que o site carrega ou muda de tamanho
+  window.addEventListener("load", ajustarEspaco);
+  window.addEventListener("resize", ajustarEspaco);
+
+  // 2. CONTROLE DE SCROLL SUAVE (Mata a tremedeira)
   window.addEventListener("scroll", function() {
-    // Só encolhe quando o usuário já desceu bem a tela (80px)
     if (window.scrollY > 80 && !isScrolled) {
       document.body.classList.add("scrolled");
       isScrolled = true;
-    } 
-    // Só volta a crescer quando o usuário colar lá no topo (menos de 10px)
-    else if (window.scrollY <= 10 && isScrolled) {
+    } else if (window.scrollY <= 10 && isScrolled) {
       document.body.classList.remove("scrolled");
       isScrolled = false;
+      ajustarEspaco(); // Garante que o molde volte ao tamanho certo
     }
+  });
+
+  // 3. GPS INTELIGENTE DO MENU (Mata o erro de passar reto no mobile)
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // Desliga o pulo automático
+      
+      const destino = document.querySelector(this.getAttribute('href'));
+      
+      // Calcula a altura somada do menu fixo + hero compacto (aprox 120px)
+      // Se achar que ainda tá cobrindo o título, aumente esse número para 140
+      const alturaCabecalhoCompacto = 120; 
+      
+      const posicaoExata = destino.getBoundingClientRect().top + window.scrollY - alturaCabecalhoCompacto;
+      
+      window.scrollTo({
+        top: posicaoExata,
+        behavior: "smooth"
+      });
+    });
   });
 </script>
 </body>
